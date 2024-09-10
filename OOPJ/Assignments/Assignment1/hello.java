@@ -1,0 +1,120 @@
+/*1.	Hello World Program: Write a Java program that prints "Hello World!!" to the console.
+2.	Compile with Verbose Option: Compile your Java file using the -verbose option with javac. Check the output.
+3.	Inspect Bytecode: Use the javap tool to examine the bytecode of the compiled .class file. Observe the output.
+*/
+class hello
+{
+    public static void main(String args[])
+    {
+        System.out.println("Hello World!!");
+    }
+}
+
+/*Output:
+PS C:\Users\Swapnil\Desktop\CDAC\OOPJ\Assignments\ass2> java hello      
+Hello World!!
+*/
+
+
+/*2) Compile with - verbose option
+ PS C:\Users\Swapnil\Desktop\CDAC\OOPJ\Assignments\ass2> javac -verbose hello.java
+[parsing started SimpleFileObject[C:\Users\Swapnil\Desktop\CDAC\OOPJ\Assignments\ass2\hello.java]]
+[parsing completed 14ms]
+[loading /modules/jdk.crypto.cryptoki/module-info.class]
+[loading /modules/jdk.nio.mapmode/module-info.class]
+[loading /modules/java.rmi/module-info.class]       
+[loading /modules/java.xml/module-info.class]       
+[loading /modules/jdk.jcmd/module-info.class]       
+[loading /modules/java.logging/module-info.class]     
+[loading /modules/jdk.accessibility/module-info.class]
+[loading /modules/jdk.javadoc/module-info.class]      
+[loading /modules/jdk.httpserver/module-info.class]
+[loading /modules/jdk.internal.vm.compiler/module-info.class]
+[loading /modules/jdk.jstatd/module-info.class]
+[loading /modules/java.base/module-info.class]
+[loading /modules/jdk.internal.opt/module-info.class]
+[loading /modules/jdk.jlink/module-info.class]
+[loading /modules/jdk.internal.jvmstat/module-info.class]
+[loading /modules/jdk.crypto.ec/module-info.class]
+[loading /modules/jdk.net/module-info.class]
+[loading /modules/jdk.security.jgss/module-info.class]
+[loading /modules/java.scripting/module-info.class]
+[loading /modules/java.sql/module-info.class]
+[loading /modules/jdk.naming.dns/module-info.class]
+[loading /modules/java.datatransfer/module-info.class]
+[loading /modules/java.transaction.xa/module-info.class]
+[loading /modules/jdk.naming.rmi/module-info.class]
+[loading /modules/jdk.security.auth/module-info.class]
+[loading /modules/jdk.management/module-info.class]
+[loading /modules/jdk.crypto.mscapi/module-info.class]
+[loading /modules/jdk.internal.le/module-info.class]
+[loading /modules/java.security.jgss/module-info.class]
+[loading /modules/java.security.sasl/module-info.class]
+[loading /modules/jdk.internal.vm.ci/module-info.class]
+[loading /modules/java.instrument/module-info.class]
+[loading /modules/java.desktop/module-info.class]
+[loading /modules/java.sql.rowset/module-info.class]
+[loading /modules/jdk.sctp/module-info.class]
+[loading /modules/jdk.jfr/module-info.class]
+[loading /modules/jdk.jpackage/module-info.class]
+[loading /modules/jdk.jdeps/module-info.class]
+[loading /modules/java.net.http/module-info.class]
+[loading /modules/jdk.jdwp.agent/module-info.class]
+[loading /modules/jdk.attach/module-info.class]
+[loading /modules/java.management/module-info.class]
+[loading /modules/jdk.internal.vm.compiler.management/module-info.class]
+[loading /modules/jdk.incubator.vector/module-info.class]
+[loading /modules/java.naming/module-info.class]
+[loading /modules/jdk.jconsole/module-info.class]
+[loading /modules/java.prefs/module-info.class]
+[loading /modules/jdk.incubator.foreign/module-info.class]
+[loading /modules/java.management.rmi/module-info.class]
+[loading /modules/jdk.compiler/module-info.class]
+[loading /modules/jdk.jdi/module-info.class]
+[loading /modules/jdk.management.agent/module-info.class]
+[loading /modules/jdk.jshell/module-info.class]
+[loading /modules/jdk.internal.ed/module-info.class]
+[loading /modules/java.se/module-info.class]
+[loading /modules/java.compiler/module-info.class]
+[loading /modules/jdk.unsupported/module-info.class]
+[loading /modules/java.xml.crypto/module-info.class]
+[loading /modules/java.smartcardio/module-info.class]
+[loading /modules/jdk.dynalink/module-info.class]
+[loading /modules/jdk.zipfs/module-info.class]
+[loading /modules/jdk.xml.dom/module-info.class]
+[loading /modules/jdk.hotspot.agent/module-info.class]
+[loading /modules/jdk.localedata/module-info.class]
+[loading /modules/jdk.management.jfr/module-info.class]
+[loading /modules/jdk.editpad/module-info.class]
+[loading /modules/jdk.charsets/module-info.class]
+[loading /modules/jdk.jartool/module-info.class]
+[loading /modules/jdk.jsobject/module-info.class]
+[loading /modules/jdk.unsupported.desktop/module-info.class]
+[loading /modules/jdk.random/module-info.class]
+[search path for source files: .]
+[search path for class files: C:\Program Files\Java\jdk-17\lib\modules,.]
+[loading /modules/java.base/java/lang/Object.class]
+[loading /modules/java.base/java/lang/String.class]
+[loading /modules/java.base/java/lang/Deprecated.class]
+[loading /modules/java.base/java/lang/annotation/Retention.class]
+[loading /modules/java.base/java/lang/annotation/RetentionPolicy.class]
+[loading /modules/java.base/java/lang/annotation/Target.class]
+[loading /modules/java.base/java/lang/annotation/ElementType.class]
+[checking hello]
+[loading /modules/java.base/java/io/Serializable.class]
+[loading /modules/java.base/java/lang/AutoCloseable.class]
+[loading /modules/java.base/java/lang/System.class]
+[loading /modules/java.base/java/io/PrintStream.class]
+[loading /modules/java.base/java/lang/Appendable.class]
+[loading /modules/java.base/java/io/Closeable.class]
+[loading /modules/java.base/java/io/FilterOutputStream.class]
+[loading /modules/java.base/java/io/OutputStream.class]
+[loading /modules/java.base/java/io/Flushable.class]
+[loading /modules/java.base/java/lang/Comparable.class]
+[loading /modules/java.base/java/lang/CharSequence.class]
+[loading /modules/java.base/java/lang/constant/Constable.class]
+[loading /modules/java.base/java/lang/constant/ConstantDesc.class]
+[wrote hello.class]
+[total 545ms]*/
+
+/*3)javap is used to find the bytecode of .class file created by compiler*/
