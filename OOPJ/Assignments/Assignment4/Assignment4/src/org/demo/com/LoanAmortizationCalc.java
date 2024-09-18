@@ -51,7 +51,7 @@ public class LoanAmortizationCalc {
 	
 	@Override
 	public String toString() {
-		return "Monthly Payment: ₹" + calculateMonthlyPayment() +
-			   "\nTotal Payment: ₹" + calculateTotalPayment();
+		return "Monthly Payment: " + calculateMonthlyPayment() +
+			   "\nTotal Payment: " + calculateTotalPayment();
 	}
 }
