@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+   
+        input{
+            width: 60%;
+            padding: 15px;
+            margin-bottom: 25px;
+            margin-left: 25px;
+            align-self:auto;
+        }
+        button{
+            width: 35%;
+             padding-top: 10px;
+             padding-bottom: 10px;
+             background: white;
+             color: #EF5350;
+             border-color:#EF5350;
+             border-width: 1px;
+             border-style: solid;
+             cursor: pointer;
+             transition: background 0.4s;
+        }
+        button:hover{
+             background: #de70b5;
+             color: white;
+            }
+        #container{
+            width: 400px;
+            height: 500px;
+            text-align: center;
+            margin-top: 120px;
+            position: absolute;
+            margin-left: 35%;
+            background:white;
+            
+            border-radius: 25px;
+          }
+    </style>
+</head>
+<body class="img">
+    <nav>
+        <div class="menu">
+          <div class="logo">
+            <h4>Nutrition Meal Planner</h4>
+          </div>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="signin.html">Login</a></li>
+            <li><a href="registration.html">Registration</a></li>
+            <li><a href="recipe.html">Recipe</a></li>
+            <li><a href="mealplan.html">Meal Plan</a></li>
+            <li><a href="shoppinglist.html">Shopping List</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+          
+          </ul>
+        </div>
+      </nav>
+      <div id="container">
+        <h1 align="center " ; style="padding-top: 30px;">Contact Us</h1>
+        <form>
+            <input type="text" placeholder="Enter name" required>
+            <input type="email" placeholder="Enter Email" required>
+            <input type="text" placeholder="Enter Mobile No" required>
+            <input type="textarea" placeholder="Enter Message" required>
+            <button type="submit" onclick="alert('Response Recorded We will contact you')">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

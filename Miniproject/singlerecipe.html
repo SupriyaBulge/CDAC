@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Recipe Listings</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        button {
+            width: 15%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background: white;
+            color: #EF5350;
+            border-color: #EF5350;
+            border-width: 1px;
+            border-style: solid;
+            cursor: pointer;
+            transition: background 0.4s;
+            margin-left: 15px;
+        }
+
+        button:hover {
+            background: #de70b5;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="img">
+    <nav>
+        <div class="menu">
+            <div class="logo">
+                <h4>Nutrition Meal Planner</h4>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="signin.html">Login</a></li>
+                <li><a href="registration.html">Registration</a></li>
+                <li><a href="recipe.html">Recipe</a></li>
+                <li><a href="addrecipe.html">Add Recipe</a></li>
+                <li><a href="mealplan.html">Meal Plan</a></li>
+                <li><a href="shoppinglist.html">Shopping List</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="position: absolute; margin-top: 100px; margin-left: 100px;">
+        <h1>Recipe Listings</h1>
+        <div id="recipe-list"></div> <!-- Container for the dynamic recipe cards -->
+    </div>
+
+    <script>
+        // Fetch recipes from the backend and display them
+        async function fetchRecipes() {
+            try {
+                const response = await fetch('http://localhost:5000/recipes');
+                const data = await response.json();
+
+                if (data.success) {
+                    const recipeList = document.getElementById('recipe-list');
+                    data.recipes.forEach(recipe => {
+                        const recipeCard = `
+                            <div class="card" style="margin-bottom: 20px; padding-bottom:20px">
+                                <div class="card-header">Recipe No:${recipe.rnum} :${recipe.rtitle} </div>
+                                <div class="card-body">
+                                    <h5>Ingredients</h5>
+                                    <ul>
+                                        <li>${recipe.ringredient}</li> 
+                                    </ul>
+                                    <h5>Instructions</h5>   
+                                    <p>${recipe.rprocedure}</p>
+                                    
+
+                                </div>
+                        
+                            </div>
+                            
+                        `;
+                        recipeList.innerHTML += recipeCard;
+                    });
+                } else {
+                    alert('Failed to load recipes: ' + data.error);
+                }
+            } catch (error) {
+                console.error('Error fetching recipes:', error);
+                alert('Failed to fetch recipes');
+            }
+        }
+
+        // Call fetchRecipes when the page loads
+        
+        fetchRecipes();
+
+    </script>
+</body>
+
+</html>

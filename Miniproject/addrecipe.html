@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Recipe</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        input, textarea {
+            width: 60%;
+            padding: 15px;
+            margin-bottom: 25px;
+            margin-left: 25px;
+            align-self:auto;
+        }
+        button {
+            width: 25%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background: white;
+            color: #EF5350;
+            border-color:#EF5350;
+            border-width: 1px;
+            border-style: solid;
+            cursor: pointer;
+            transition: background 0.4s;
+        }
+        button:hover {
+            background: #de70b5;
+            color: white;
+        }
+        #container {
+            width: 550px;
+            height: 550px;
+            text-align: center;
+            margin-top: 120px;
+            position: absolute;
+            margin-left: 35%;
+            background:white;
+            border-radius: 25px;
+        }
+    </style>
+</head>
+<body class="img">
+    <nav>
+        <div class="menu">
+            <div class="logo">
+                <h4>Nutrition Meal Planner</h4>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="signin.html">Login</a></li>
+                <li><a href="registration.html">Registration</a></li>
+                <li><a href="recipe.html">Recipe</a></li>
+                <li><a href="addrecipe.html">Add Recipe</a></li>
+                <li><a href="mealplan.html">Meal Plan</a></li>
+                <li><a href="shoppinglist.html">Shopping List</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="container">
+        <h1 align="center" style="padding-top: 30px;">Add Recipe</h1>
+        <form enctype="multipart/form-data" id="addrecipeform">
+            <input type="text" placeholder="Enter Recipe Number" required id="rnum" name="rnum">
+            <input type="text" placeholder="Enter Recipe Title" required id="rtitle" name="rtitle">
+            <textarea placeholder="Enter Ingredients" required id="ringredient" name="ringredient"></textarea>
+            <textarea placeholder="Enter Procedure" required id="rprocedure" name="rprocedure"></textarea><br>
+            <button type="submit" name="action" value="save">Save</button>
+            <button type="submit" name="action" value="update">Update</button>
+            <button type="submit" name="action" value="delete" >Delete</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('addrecipeform').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            
+            const rnum = document.getElementById('rnum').value;
+            const rtitle = document.getElementById('rtitle').value;
+            const ringredient = document.getElementById('ringredient').value;
+            const rprocedure = document.getElementById('rprocedure').value;
+            const action = e.submitter.value;  // This gives the action: 'save', 'update', or 'delete'
+
+            const recipeData = {
+                rnum,
+                rtitle,
+                ringredient,
+                rprocedure,
+                action
+            };
+
+            const response = await fetch('http://localhost:5000/recipes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(recipeData),
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                alert(`${action.charAt(0).toUpperCase() + action.slice(1)} successful!`);
+                // Optionally, reset the form or redirect
+                document.getElementById('addrecipeform').reset();
+            } else {
+                alert(`${action.charAt(0).toUpperCase() + action.slice(1)} failed: ${result.error}`);
+            }
+        });
+    </script>
+</body>
+</html>
